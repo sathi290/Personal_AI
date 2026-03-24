@@ -52,6 +52,7 @@ cd personal-ai
 
 ### 2. Create virtual environment
 python -m venv venv
+
 venv\Scripts\activate
 
 
