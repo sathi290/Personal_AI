@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My AI</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+    margin:0;
+}
+
+/* Greeting */
+.greeting{
+    text-align:center;
+    padding:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* Chat container */
+.chat-container{
+    width:70%;
+    margin:auto;
+    margin-top:10px;
+    padding-bottom:120px;
+}
+
+/* Messages */
+.message{
+    padding:12px;
+    margin:10px;
+    border-radius:10px;
+    max-width:70%;
+    line-height:1.5;
+}
+
+.user{
+    background:#2563eb;
+    margin-left:auto;
+    text-align:right;
+}
+
+.ai{
+    background:#1e293b;
+    margin-right:auto;
+}
+
+/* Code box */
+.code-box{
+    background:#020617;
+    border:1px solid #334155;
+    padding:10px;
+    margin-top:8px;
+    border-radius:6px;
+    font-family:monospace;
+    white-space:pre-wrap;
+}
+
+/* Input area */
+.input-area{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#020617;
+    padding:10px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+input{
+    width:60%;
+    padding:10px;
+    border-radius:6px;
+    border:none;
+}
+
+button{
+    padding:10px 14px;
+    background:#2563eb;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="greeting">
+{{ greeting }}
+</div>
+
+<div class="chat-container" id="chat"></div>
+
+<div class="input-area">
+
+<input id="msg" placeholder="Ask something..." />
+
+<button onclick="startVoice()">🎤</button>
+
+<button onclick="send()">Send</button>
+
+</div>
+
+<script>
+
+async function send(){
+
+let input=document.getElementById("msg");
+let text=input.value;
+
+if(!text) return;
+
+addMessage(text,"user");
+
+input.value="";
+
+let res=await fetch("/chat",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({message:text})
+});
+
+let data=await res.json();
+
+addMessage(data.reply,"ai");
+
+}
+
+function addMessage(text,type){
+
+let chat=document.getElementById("chat");
+
+let div=document.createElement("div");
+div.className="message "+type;
+
+if(text.includes("```")){
+
+let parts=text.split("```");
+
+div.innerHTML =
+parts[0] +
+`<div class="code-box">${parts[1]}</div>` +
+(parts[2] || "");
+
+}
+else{
+
+div.innerText=text;
+
+}
+
+chat.appendChild(div);
+
+window.scrollTo(0,document.body.scrollHeight);
+
+}
+
+/* Voice input */
+
+function startVoice(){
+
+const recognition = new webkitSpeechRecognition();
+
+recognition.lang="en-US";
+
+recognition.onresult=function(event){
+
+document.getElementById("msg").value =
+event.results[0][0].transcript;
+
+};
+
+recognition.start();
+
+}
+
+</script>
+
+</body>
+</html>
