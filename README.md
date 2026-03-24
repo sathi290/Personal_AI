@@ -12,7 +12,7 @@ A smart AI assistant built using Flask + Ollama + Wikipedia API.
 - 📊 Multiplication table generator
 - 🌐 Wikipedia + Google (DuckDuckGo) search
 - 💻 Code generation (Python, Java, etc.)
-- 🎤 Voice support (optional)
+- 🎤 Voice support 
 
 ---
 
