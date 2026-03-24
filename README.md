@@ -74,6 +74,60 @@ personal_ai/
 ## ⚙️ Installation
 
 ### 1. Clone repo
-git clone https://github.com/your-username/personal-ai.git
+git clone https://github.com/sathi290/personal-ai.git
 
 cd personal-ai
+
+---
+
+### 2. Create virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+
+---
+
+### 3. Install dependencies
+pip install -r requirements.txt
+
+
+---
+
+### 4. Run Ollama
+
+Make sure Ollama is running:
+ollama run gemma:2b
+
+
+---
+
+### 5. Run app
+python app.py
+
+
+---
+
+## 🌐 Open in browser
+http://127.0.0.1:5000/
+
+
+---
+
+## 📸 Screenshots
+
+
+
+---
+
+## 🔥 Future Improvements
+
+- Better memory system
+- More accurate AI responses
+- UI enhancements
+- Deployment (Render / Railway)
+
+---
+
+## 👨‍💻 Author
+
+**Sathi Saha**
