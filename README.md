@@ -28,36 +28,7 @@ A smart AI assistant built using Flask + Ollama + Wikipedia API.
 ---
 
 ## 📂 Project Structure
-# 🤖 Personal AI Assistant
 
-A smart AI assistant built using Flask + Ollama + Wikipedia API.
-
----
-
-## 🚀 Features
-
-- 💬 Chat-based interface (like ChatGPT)
-- 🧠 Remembers user name
-- 🔢 Calculator support
-- 📊 Multiplication table generator
-- 🌐 Wikipedia + Google (DuckDuckGo) search
-- 💻 Code generation (Python, Java, etc.)
-- 🎤 Voice support (optional)
-
----
-
-## 🛠️ Tech Stack
-
-- Python
-- Flask
-- Ollama (Local AI Model)
-- Wikipedia API
-- DuckDuckGo API
-- HTML, CSS, JavaScript
-
----
-
-## 📂 Project Structure
 personal_ai/
 │
 ├── app.py
@@ -67,7 +38,6 @@ personal_ai/
 ├── static/
 ├── requirements.txt
 └── README.md
-
 
 ---
 
