@@ -31,12 +31,19 @@ A smart AI assistant built using Flask + Ollama + Wikipedia API.
 
 personal_ai/
 │
+
 ├── app.py
+
 ├── brain.py
+
 ├── memory.py
+
 ├── templates/
+
 ├── static/
+
 ├── requirements.txt
+
 └── README.md
 
 ---
